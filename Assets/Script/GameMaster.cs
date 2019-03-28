@@ -10,6 +10,7 @@ public class GameMaster : MonoBehaviour {
 
     static bool clear;
     static bool gameover;
+    public static float time; 
     static GameObject c;
     public GameObject cleartext;
 	// Use this for initialization

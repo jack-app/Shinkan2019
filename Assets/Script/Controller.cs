@@ -12,6 +12,8 @@ public class Controller : MonoBehaviour {
     public float skydeceleration;       //空中での減速率
     public float grounddeceleration;    //接地時の減速率
 
+    float Smash = 1000;
+
     // Use this for initialization
     void Start()
     {
@@ -28,6 +30,23 @@ public class Controller : MonoBehaviour {
         FallDeathJudge();   //落下死の判定をします
     }
 
+    private void OnBecameInvisible()
+    {
+        GameMaster.GameOver();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Flower")
+        {
+            //Debug.Log("Hey");
+            var nor = collision.GetContact(0).normal;
+            rigidBody.AddForce(nor * Smash);
+
+            Smash *= 1.1f;
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         
@@ -35,13 +54,15 @@ public class Controller : MonoBehaviour {
         if (collision.transform.tag == "Ground" )
         {
             //接地時に法線が上を向いている & 速度が下方向のときにフラグを真に
-            var nor = collision.GetContact(1).normal;
+            var nor = collision.GetContact(0).normal;
             if (Mathf.Abs(nor.x) < Mathf.Abs(nor.y) && nor.y > 0 && rigidBody.velocity.y <= 0)
             {
                 onground = true;
             }
             
         }
+
+        
     }
     //地面から離れたらフラグを偽に
     private void OnCollisionExit2D(Collision2D collision)
@@ -105,7 +126,7 @@ public class Controller : MonoBehaviour {
     {
         if (transform.position.y < -7)
         {
-            GameMaster.GameOver();
+            //GameMaster.GameOver();
         }
     }
 

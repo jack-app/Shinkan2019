@@ -52,7 +52,8 @@ public class GameMaster : MonoBehaviour {
     {
         if (!clear)
         {
-            
+            StaticNum st = new StaticNum();
+            st.Timerstop();
             gameover = true;
             SceneManager.LoadScene("GameOver");
         }

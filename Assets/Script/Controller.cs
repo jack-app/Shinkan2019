@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
 
-    new public Rigidbody2D rigidbody;
+    Rigidbody2D rigidBody;
     public float maxspeed;              //最高速度
     public float accelaration;          //加速度
     public float jump;                  //ジャンプの高さ(この値を2倍にすると高さは4倍になります)
@@ -15,7 +15,7 @@ public class Controller : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
 
     }
 
@@ -35,8 +35,8 @@ public class Controller : MonoBehaviour {
         if (collision.transform.tag == "Ground" )
         {
             //接地時に法線が上を向いている & 速度が下方向のときにフラグを真に
-            var nor = collision.contacts[1].normal;
-            if (Mathf.Abs(nor.x) < Mathf.Abs(nor.y) && nor.y > 0 && rigidbody.velocity.y <= 0)
+            var nor = collision.GetContact(1).normal;
+            if (Mathf.Abs(nor.x) < Mathf.Abs(nor.y) && nor.y > 0 && rigidBody.velocity.y <= 0)
             {
                 onground = true;
             }
@@ -57,16 +57,16 @@ public class Controller : MonoBehaviour {
         //速度がmaxspeedより小さいときに力を加える
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (rigidbody.velocity.x <= maxspeed)
+            if (rigidBody.velocity.x <= maxspeed)
             {
-                rigidbody.AddForce(new Vector2(accelaration, 0));
+                rigidBody.AddForce(new Vector2(accelaration, 0));
             }
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (rigidbody.velocity.x >= -maxspeed)
+            if (rigidBody.velocity.x >= -maxspeed)
             {
-                rigidbody.AddForce(new Vector2(-accelaration, 0));
+                rigidBody.AddForce(new Vector2(-accelaration, 0));
             }
         }
 
@@ -76,8 +76,8 @@ public class Controller : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Space) && onground)
         {
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
-            rigidbody.AddForce(new Vector2(0, jump));
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
+            rigidBody.AddForce(new Vector2(0, jump));
             onground = false;
         }
     }
@@ -90,11 +90,11 @@ public class Controller : MonoBehaviour {
         {
             if (onground)
             {
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x * grounddeceleration, rigidbody.velocity.y);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x * grounddeceleration, rigidBody.velocity.y);
             }
             else
             {
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x * skydeceleration, rigidbody.velocity.y);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x * skydeceleration, rigidBody.velocity.y);
             }
 
             

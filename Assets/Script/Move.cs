@@ -10,6 +10,8 @@ public class Move : MonoBehaviour
     public Vector3[] destinationpositions;
     int destinationnumber = 0;
     public float speed;
+    //加速判定用
+    bool ac = true;
     // Use this for initialization
     void Start()
     {
@@ -27,6 +29,17 @@ public class Move : MonoBehaviour
             destinationnumber = (destinationnumber + 1) % destinationpositions.Length;
         }
 
-
+        if(ac == true)
+        {
+            ac = false;
+            StartCoroutine("Acceralation");
+        }
+    }
+    //加速させます
+    private IEnumerator Acceralation()
+    {
+        yield return new WaitForSeconds(10f);
+        speed += 10;
+        ac = true;
     }
 }

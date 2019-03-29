@@ -12,15 +12,30 @@ public class GameMaster : MonoBehaviour {
     static bool gameover;
     static GameObject c;
     public GameObject cleartext;
+    static GameObject firstinstance;
 	// Use this for initialization
 	void Start () {
         DontDestroyOnLoad(this.gameObject); //このオブジェクトがシーン遷移で消えないように
         c = cleartext;                      
+
 	}
 
     private void Awake()
     {
         clear = gameover = false;
+
+        //2回目のシーン読み込み以降はGameMasterが生成されないように
+        if (firstinstance == null)
+        {
+            firstinstance = this.gameObject;
+        }
+        else
+        {
+            if (firstinstance != this.gameObject)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -55,6 +70,7 @@ public class GameMaster : MonoBehaviour {
             
             gameover = true;
             SceneManager.LoadScene("GameOver");
+            
         }
 
     }

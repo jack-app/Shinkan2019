@@ -35,7 +35,7 @@ public class Controller : MonoBehaviour {
         if (collision.transform.tag == "Ground" )
         {
             //接地時に法線が上を向いている & 速度が下方向のときにフラグを真に
-            var nor = collision.GetContact(1).normal;
+            var nor = collision.GetContact(0).normal;
             if (Mathf.Abs(nor.x) < Mathf.Abs(nor.y) && nor.y > 0 && rigidBody.velocity.y <= 0)
             {
                 onground = true;

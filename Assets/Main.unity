@@ -332,6 +332,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273762284202706, guid: 28b768e9b135a1748850209c691daa64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4728390319788798, guid: 28b768e9b135a1748850209c691daa64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 61.7
@@ -363,6 +367,11 @@ PrefabInstance:
     - target: {fileID: 4728390319788798, guid: 28b768e9b135a1748850209c691daa64, type: 3}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 249102709823215814, guid: 28b768e9b135a1748850209c691daa64,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28b768e9b135a1748850209c691daa64, type: 3}
@@ -1023,7 +1032,7 @@ PrefabInstance:
     - target: {fileID: 251275611326146142, guid: bf66925453e06884dae45805a155535e,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 251275611326146142, guid: bf66925453e06884dae45805a155535e,
         type: 3}
@@ -1472,7 +1481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e402b02ed0c9634398dd971bfdfd0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
   maxspeed: 30
   accelaration: 300
   jump: 3000
@@ -1692,7 +1700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1912920289
 BoxCollider2D:
   m_ObjectHideFlags: 0

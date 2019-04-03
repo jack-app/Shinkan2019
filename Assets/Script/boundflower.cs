@@ -4,14 +4,27 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 
-public class boundflower : MonoBehaviour
+public class Boundflower : MonoBehaviour
 {
+    private bool cs = true;//天気を明るくするコルーチンのフラグ
     public int power;
     private Rigidbody2D addp;
     public GameObject panel;
     private void Start()
     {
         panel.GetComponent<Image>().color = new Color(1, 1, 0, 0);
+    }
+    private void Update()
+    {
+        if (panel.GetComponent<Image>().color.a < 0)
+        {
+            panel.GetComponent<Image>().color = new Color(1, 1, 0, 0);
+        }
+        if(cs == true)
+        {
+            cs = false;
+            StartCoroutine("Clearsky");
+        }
     }
     //花との衝突時吹っ飛ぶ
     private void OnCollisionEnter2D(Collision2D collision2D)
@@ -37,5 +50,17 @@ public class boundflower : MonoBehaviour
             }
 
         }
+    }
+    private IEnumerator Clearsky()
+    {
+        yield return new WaitForSeconds(1.0f);
+        if(panel.GetComponent<Image>().color.a > 0)
+        {
+            panel.GetComponent<Image>().color += new Color(0, 0, 0, -3f / 255f);
+            
+        }
+
+        cs = true;
+        
     }
 }

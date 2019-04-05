@@ -44,7 +44,7 @@ public class Boundflower : MonoBehaviour
             power += 400;
 
             panel.GetComponent<Image>().color +=new Color(0, 0, 0, 15f/255f);
-            if (panel.GetComponent<Image>().color == new Color(1, 1, 0, 1))
+            if (panel.GetComponent<Image>().color.a >= 245f/255f)
             {
                 GameMaster.GameOver();
             }

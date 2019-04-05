@@ -28,7 +28,7 @@ public class Move : MonoBehaviour
             //destinationnumberが最大になったら0に戻してそうでないときは++1
             destinationnumber = (destinationnumber + 1) % destinationpositions.Length;
         }
-
+        //加速させるフラグ
         if(ac == true)
         {
             ac = false;

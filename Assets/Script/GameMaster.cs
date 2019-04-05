@@ -13,11 +13,23 @@ public class GameMaster : MonoBehaviour
     static bool clear;
     static bool gameover;
     static GameObject firstinstance;
+
+    public GameObject Zokin;
+    public GameObject Sojiki;
+    public GameObject Runba;
+
+    public Text TimeText;
+
+    private float time;
+    private IEnumerator timeCoroutine;
+
     // Use this for initialization
     void Start()
     {
         DontDestroyOnLoad(this.gameObject); //このオブジェクトがシーン遷移で消えないように                  
-
+        StartCoroutine(MakeEnemiesCoroutine());
+        timeCoroutine = TimerCoroutine();
+        StartCoroutine(timeCoroutine);
     }
 
     private void Awake()
@@ -47,10 +59,12 @@ public class GameMaster : MonoBehaviour
             if (Input.GetKey(KeyCode.Return))
             {
                 GameMaster.Restart();
-
             }
-
+            StopCoroutine(timeCoroutine);
+            //TimeText.transform.position = new Vector3(15, 7, 0);
+            TimeText.fontSize = 100;
         }
+
 
     }
 
@@ -67,11 +81,12 @@ public class GameMaster : MonoBehaviour
 
     public static void GameOver()
     {
+        
         if (!clear)
         {
 
             gameover = true;
-            SceneManager.LoadScene("GameOver");
+            //SceneManager.LoadScene("GameOver");
 
         }
 
@@ -81,5 +96,61 @@ public class GameMaster : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
 
+    }
+
+    IEnumerator MakeZokinCoroutine(){
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            MakeZokin();
+        }
+    }
+
+    IEnumerator MakeSojikiCoroutine(){
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            MakeSojiki();
+        }
+    }
+
+    IEnumerator MakeRunbaCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            MakeRunba();
+        }
+    }
+
+    IEnumerator MakeEnemiesCoroutine(){
+        StartCoroutine(MakeZokinCoroutine());
+        yield return new WaitForSeconds(10);
+        StartCoroutine(MakeSojikiCoroutine());
+        yield return new WaitForSeconds(10);
+        StartCoroutine(MakeRunbaCoroutine());
+    }
+
+    void MakeZokin(){
+        int r = Random.Range(-15, 15);
+        Instantiate(Zokin, new Vector3(r, 12, 0), Quaternion.identity);
+    }
+
+    void MakeSojiki(){
+        int r = Random.Range(-15, 15);
+        Instantiate(Sojiki, new Vector3(r, 6, 0), Quaternion.identity);
+    }
+
+    void MakeRunba(){
+        int r = Random.Range(-15, 15);
+        Instantiate(Runba, new Vector3(r, 2, 0), Quaternion.identity);
+    }
+
+    IEnumerator TimerCoroutine(){
+        while(true){
+            yield return new WaitForSeconds(0.1f);
+            time += 0.1f; 
+            TimeText.text = time.ToString();
+        }
     }
 }

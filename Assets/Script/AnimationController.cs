@@ -8,13 +8,13 @@ public class AnimationController : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private bool onground;
     private Animator anim;
-    private Controller controllerreference;
+    private Controller1 controllerreference;
     // Use this for initialization
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        controllerreference = GetComponent<Controller>();
+        controllerreference = GetComponent<Controller1>();
 
     }
 

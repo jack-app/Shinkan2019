@@ -70,8 +70,10 @@ public class GameMaster : MonoBehaviour
         if (!clear)
         {
 
-            gameover = true;
-            SceneManager.LoadScene("GameOver");
+            //gameover = true;
+            //SceneManager.LoadScene("GameOver");
+
+            SceneManager.LoadScene("GyuttoE");
 
         }
 

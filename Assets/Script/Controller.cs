@@ -24,7 +24,7 @@ public class Controller : MonoBehaviour {
 
         HorizontalMove();   //横方向の移動をします
         Jump();             //ジャンプします
-        Deceleration();     //移動中の減速をします.  最初空中での減速率(skydeceleration)は1(減速なし)になっています.0.9あたりにするとちょうど良いです
+        Deceleration();     //移動中の減速をします. 最初空中での減速率(skydeceleration)は1(減速なし)になっています.0.9あたりにするとちょうど良いです
         FallDeathJudge();   //落下死の判定をします
     }
 

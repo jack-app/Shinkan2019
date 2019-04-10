@@ -9,18 +9,22 @@ public class AnimationController : MonoBehaviour
     private bool onground;
     private Animator anim;
     private Controller controllerreference;
+    public int time;
+    
     // Use this for initialization
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         controllerreference = GetComponent<Controller>();
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         anim.SetBool("OnGround", controllerreference.onground);
 
         //移動にAddForceを使っているため完全に止まるまで時間がかかるので速度の大きさ0.2f以下は静止していることにする

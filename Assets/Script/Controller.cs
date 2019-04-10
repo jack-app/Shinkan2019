@@ -103,7 +103,7 @@ public class Controller : MonoBehaviour {
 
     void FallDeathJudge()
     {
-        if (transform.position.y < -7)
+        if (transform.position.y < -30)
         {
             GameMaster.GameOver();
         }

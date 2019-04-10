@@ -13,17 +13,21 @@ public class GameMaster : MonoBehaviour
     static bool clear;
     static bool gameover;
     static GameObject firstinstance;
+    public static int partsnumber;
+    public int time;
+    public float nowtime;
+    public  Text text;
+    public Text parts;
     // Use this for initialization
     void Start()
-    {
-        DontDestroyOnLoad(this.gameObject); //このオブジェクトがシーン遷移で消えないように                  
+    { //このオブジェクトがシーン遷移で消えないように                  
 
     }
 
     private void Awake()
     {
         clear = gameover = false;
-
+      
         //2回目のシーン読み込み以降はGameMasterが生成されないように
         if (firstinstance == null)
         {
@@ -36,11 +40,21 @@ public class GameMaster : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        text.text =""+ Mathf.Ceil(time - nowtime);
+        if(Mathf.Ceil(time - nowtime) <= 0)
+        {
+            GameOver();
+        }
+        nowtime += Time.deltaTime;
+        parts.text = "" + partsnumber + "コ";
+
         if (clear || gameover)
         {
             //クリアーまたはゲームオーバー時にエンターを押すと最初からになる
@@ -51,7 +65,6 @@ public class GameMaster : MonoBehaviour
             }
 
         }
-
     }
 
     public static void Clear()
@@ -80,6 +93,6 @@ public class GameMaster : MonoBehaviour
     public static void Restart()
     {
         SceneManager.LoadScene("Main");
-
+        partsnumber = 0;
     }
 }

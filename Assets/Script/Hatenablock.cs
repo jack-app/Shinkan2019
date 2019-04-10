@@ -31,20 +31,12 @@ public class Hatenablock : MonoBehaviour
             if (controller == true)
             {
                 controller = false;
-                StartCoroutine("Hatenanonakami");
+                InstantiateHana.Hanaderu();
             }
-            Block.GetComponent<Renderer>().material.color = new Color(0f / 255f, 0f / 255f, 0);
+            Block.GetComponent<SpriteRenderer>().color = new Color(0f / 255f, 0f / 255f, 0, 255f/255f);
             Hatena.SetActive(false);
         }
 
     }
-    /// <summary>
-    ///ハテナブロックの中身をここに書きます。 
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator Hatenanonakami()
-    {
-        yield return new WaitForSeconds(1f);
-        controller = true;
-    }
+
 }

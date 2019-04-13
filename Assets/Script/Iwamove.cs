@@ -22,8 +22,8 @@ public class Iwamove : MonoBehaviour
  
         if (other.gameObject.tag == "Ground")
         {
-            x = Random.Range(-10, 10);
-            y = Random.Range(-10, 10);
+            x = Random.Range(-5, 5);
+            y = Random.Range(0, 10);
             Vector2 vec = new Vector2(x, y);
             GetComponent<Rigidbody2D>().AddForce(vec*500);
         }

@@ -36,17 +36,19 @@ public class Beam : MonoBehaviour
         watosonv = transform.localScale.x;
         if (watosonv == 1)
         {
-            beamv += new Vector3(1, 0, 0);
+            beamv += new Vector3(4, 0, 0);
             vec = new Vector3(1, 0, 0);
+            GameObject beam2 = Instantiate(beam, beamv, Quaternion.identity);
+            beam2.GetComponent<Rigidbody2D>().AddForce(vec * 1000);
         }
         else
         {
-            beamv += new Vector3(-1, 0, 0);
+            beamv += new Vector3(-4, 0, 0);
             vec = new Vector3(-1, 0, 0);
+            GameObject beam2 = Instantiate(beam, beamv, Quaternion.Euler(0,180,0));
+            beam2.GetComponent<Rigidbody2D>().AddForce(vec * 1000);
         }
-        GameObject beam2 = Instantiate(beam, beamv, Quaternion.identity);
-        beam2.GetComponent<Rigidbody2D>().AddForce(vec * 1000);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         x = true;
     }
 }

@@ -27,7 +27,7 @@ public class RedBull : MonoBehaviour
     }
     IEnumerator red()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
 
         GameObject iwa2 = Instantiate(bull, v, Quaternion.identity);
         x = true;

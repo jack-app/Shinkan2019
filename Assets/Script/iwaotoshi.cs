@@ -26,7 +26,7 @@ public class iwaotoshi : MonoBehaviour
     }
     IEnumerator Iwa()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         GameObject iwa2 = Instantiate(iwa, v, Quaternion.identity);
         iwa2.GetComponent<Rigidbody2D>().AddForce(new Vector3(-1,-1,0)*power);

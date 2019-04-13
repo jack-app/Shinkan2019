@@ -69,9 +69,9 @@ public class GameMaster : MonoBehaviour
     {
         if (!clear)
         {
-
+            Scorescript.tani = Scorescript.tani / 2;
             gameover = true;
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Clear");
 
         }
 

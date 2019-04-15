@@ -13,6 +13,11 @@ public class GameMaster : MonoBehaviour
     static bool clear;
     static bool gameover;
     static GameObject firstinstance;
+
+    public static bool IsClear{
+        get { return clear; }
+    }
+
     // Use this for initialization
     void Start()
     {

@@ -13,6 +13,7 @@ public class GameMaster : MonoBehaviour
     static bool clear;
     static bool gameover;
     static GameObject firstinstance;
+
     // Use this for initialization
     void Start()
     {
@@ -61,6 +62,15 @@ public class GameMaster : MonoBehaviour
             clear = true;
             GameObject.Find("ClearText1").GetComponent<Text>().text = "Clear";
             GameObject.Find("ClearText2").GetComponent<Text>().text = "Enter to Restart";
+
+            GameObject.Find("ClearText3").GetComponent<Text>().text = "犠牲になった動物たち : " + KillCounter.GetKillCount() + " 匹";
+
+            if(KillCounter.GetKillCount() == 0)
+            {
+                GameObject.Find("ClearText3").GetComponent<Text>().text = "犠牲は生まれなかった！！";
+            }
+
+            //GameObject.Find("ClearPanel").GetComponent<Image>().color.a = ;
         }
 
     }

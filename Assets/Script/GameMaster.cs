@@ -9,20 +9,26 @@ public class GameMaster : MonoBehaviour
 
 
     //このスクリプトでゲームオーバー, クリアのシーン遷移を制御します
-
-    static bool clear;
+    public static Vector3 restartpoint;
+    public static bool clear;
     static bool gameover;
     static GameObject firstinstance;
     // Use this for initialization
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject); //このオブジェクトがシーン遷移で消えないように                  
+        DontDestroyOnLoad(this.gameObject); //このオブジェクトがシーン遷移で消えないように                
+       
 
     }
 
     private void Awake()
     {
         clear = gameover = false;
+
+        if (restartpoint == Vector3.zero) 
+        {
+            restartpoint = GameObject.FindGameObjectWithTag("Player").transform.position;
+        }
 
         //2回目のシーン読み込み以降はGameMasterが生成されないように
         if (firstinstance == null)
@@ -43,12 +49,13 @@ public class GameMaster : MonoBehaviour
     {
         if (clear || gameover)
         {
-            //クリアーまたはゲームオーバー時にエンターを押すと最初からになる
             if (Input.GetKey(KeyCode.Return))
             {
                 GameMaster.Restart();
 
             }
+            //クリアーまたはゲームオーバー時にエンターを押すと最初からになる
+
 
         }
 
@@ -61,6 +68,7 @@ public class GameMaster : MonoBehaviour
             clear = true;
             GameObject.Find("ClearText1").GetComponent<Text>().text = "Clear";
             GameObject.Find("ClearText2").GetComponent<Text>().text = "Enter to Restart";
+            restartpoint = Vector3.zero;
         }
 
     }

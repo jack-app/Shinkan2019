@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour {
+public class Controller : MonoBehaviour
+{
 
     Rigidbody2D rigidBody;
     public float maxspeed;              //最高速度
@@ -11,16 +12,29 @@ public class Controller : MonoBehaviour {
     public bool onground;               //接地判定用のフラグ
     public float skydeceleration;       //空中での減速率
     public float grounddeceleration;    //接地時の減速率
+    public int fallline;
+
+    private void Awake()
+    {
+        if (GameMaster.restartpoint != null)
+        {
+            transform.position = GameMaster.restartpoint;
+
+        }
+
+
+    }
 
     // Use this for initialization
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-
+        fallline = -7;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         HorizontalMove();   //横方向の移動をします
         Jump();             //ジャンプします
@@ -30,9 +44,9 @@ public class Controller : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
-       
-        if (collision.transform.tag == "Ground" )
+
+
+        if (collision.transform.tag == "Ground")
         {
             //接地時に法線が上を向いている & 速度が下方向のときにフラグを真に
             var nor = collision.GetContact(0).normal;
@@ -40,7 +54,7 @@ public class Controller : MonoBehaviour {
             {
                 onground = true;
             }
-            
+
         }
     }
     //地面から離れたらフラグを偽に
@@ -97,13 +111,13 @@ public class Controller : MonoBehaviour {
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x * skydeceleration, rigidBody.velocity.y);
             }
 
-            
+
         }
     }
 
     void FallDeathJudge()
     {
-        if (transform.position.y < -7)
+        if (transform.position.y < fallline)
         {
             GameMaster.GameOver();
         }

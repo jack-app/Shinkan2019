@@ -35,11 +35,11 @@ public class AnimationController : MonoBehaviour
             //速度の正負によって向きを変える
             if (rigidbody.velocity.x > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1)*transform.localScale.y;
             }
             else
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1)*transform.localScale.y;
             }
 
         }

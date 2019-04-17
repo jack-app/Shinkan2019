@@ -5,22 +5,55 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    BoxCollider2D box;
+    private void Start()
+    {
+        box = GetComponent<BoxCollider2D>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Player")
         {
             //衝突の法線で上からの接触とそれ以外を分けています
-            if (collision.contacts[0].normal == Vector2.down)
+            if (collision.GetContact(0).normal.y < 0)
             {
+
                 Destroy(gameObject);
             }
             else
             {
-                GameMaster.GameOver();
+                var direction = collision.transform.position - transform.position;
+                if (Mathf.Sign(direction.x) == transform.localScale.x && direction.y > 1)
+                {
+                    var velocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
+                    if (velocity.normalized.y<0.3f)
+                    {
+                        Destroy(gameObject);
+                    }
+                    else
+                    {
+                        box.enabled = false;
+                        Invoke("Revive", 0.5f);
+                    }
+                    
+                }
+                else
+                {
+                    GameMaster.GameOver();
+                }
+
+
             }
+
+
         }
 
+    }
+
+    void Revive()
+    {
+       box.enabled = true;
     }
 
 

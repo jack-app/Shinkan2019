@@ -123,4 +123,15 @@ public class Controller : MonoBehaviour
         }
     }
 
+    public void JumpOnEnemy()
+    {
+        onground = true;
+        Invoke("NoJump", 0.2f);
+    }
+
+    private void NoJump()
+    {
+        onground = false;
+    }
+
 }

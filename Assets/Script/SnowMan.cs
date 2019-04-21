@@ -9,6 +9,11 @@ public class SnowMan : MonoBehaviour
         if(collision.gameObject.tag == "fire")
         {
             transform.localScale -= new Vector3(0.5f, 0.5f, 0);
+
+            if(transform.localScale.x < 0 || transform.localScale.y < 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

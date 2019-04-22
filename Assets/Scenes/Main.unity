@@ -990,7 +990,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 058d13a6bf7cfa84199e4723d042d89f, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
@@ -1904,7 +1904,7 @@ GameObject:
   - component: {fileID: 1664619630}
   - component: {fileID: 1664619629}
   m_Layer: 0
-  m_Name: "\u30EC\u30C3\u30C9\u30D6\u30EB\u843D\u3068\u3057"
+  m_Name: "\u30C1\u30E7\u30B3\u30B3\u30ED\u30CD\u843D\u3068\u3057"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

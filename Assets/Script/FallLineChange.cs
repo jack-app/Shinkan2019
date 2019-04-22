@@ -61,7 +61,7 @@ public class FallLineChange : MonoBehaviour
         if (maincamera.orthographicSize > 15)
         {
             maincamera.orthographicSize -= 0.1f;
-            Invoke("InCave", 0.05f);
+            Invoke("OutCave", 0.05f);
         }
     }
 }

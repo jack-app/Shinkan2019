@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationController : MonoBehaviour
+public class AnimationControllerSgchan1 : MonoBehaviour
 {
 
     private new Rigidbody2D rigidbody;
     private bool onground;
     private Animator anim;
-    private Controller1 controllerreference;
+    private ControllerSgchan1 controllerreference;
     // Use this for initialization
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        controllerreference = GetComponent<Controller1>();
+        controllerreference = GetComponent<ControllerSgchan1>();
 
     }
 

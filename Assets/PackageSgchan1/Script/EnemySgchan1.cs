@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1 : MonoBehaviour
+public class EnemySgchan1 : MonoBehaviour
 {
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -11,7 +11,7 @@ public class Enemy1 : MonoBehaviour
         {
             
             
-                GameMaster.GameOver();
+                GameMasterSgchan1.GameOver();
             
         }
 

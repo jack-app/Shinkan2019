@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraScript : MonoBehaviour {
+public class CameraScriptSgchan1 : MonoBehaviour {
 
     GameObject player;
     // Use this for initialization

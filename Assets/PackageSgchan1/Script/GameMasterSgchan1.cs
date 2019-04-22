@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameMaster : MonoBehaviour
+public class GameMasterSgchan1 : MonoBehaviour
 {
 
 
@@ -46,7 +46,7 @@ public class GameMaster : MonoBehaviour
             //クリアーまたはゲームオーバー時にエンターを押すと最初からになる
             if (Input.GetKey(KeyCode.Return))
             {
-                GameMaster.Restart();
+                GameMasterSgchan1.Restart();
 
             }
 
@@ -71,7 +71,7 @@ public class GameMaster : MonoBehaviour
         {
 
             gameover = true;
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOverSgchan1");
 
         }
 
@@ -79,7 +79,7 @@ public class GameMaster : MonoBehaviour
 
     public static void Restart()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("MainSgchan1");
 
     }
 }

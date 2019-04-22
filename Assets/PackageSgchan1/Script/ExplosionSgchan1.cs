@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-public class Returngame : MonoBehaviour
+
+public class ExplosionSgchan1 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke("Destroy", 1);
     }
 
     // Update is called once per frame
@@ -16,8 +16,8 @@ public class Returngame : MonoBehaviour
         
     }
 
-   public void Return()
+    private void Destroy()
     {
-        SceneManager.LoadScene("Main");
+        Destroy(this.gameObject);
     }
 }

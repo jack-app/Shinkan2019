@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller1 : MonoBehaviour {
+public class ControllerSgchan1 : MonoBehaviour {
 
     Rigidbody2D rigidBody;
     public float maxspeed;              //最高速度
@@ -120,7 +120,7 @@ public class Controller1 : MonoBehaviour {
     {
         if (transform.position.y < -7)
         {
-            GameMaster.GameOver();
+            GameMasterSgchan1.GameOver();
         }
     }
 

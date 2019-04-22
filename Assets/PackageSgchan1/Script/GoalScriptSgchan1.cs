@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalScript : MonoBehaviour
+public class GoalScriptSgchan1 : MonoBehaviour
 {
 
 
@@ -10,7 +10,7 @@ public class GoalScript : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            GameMaster.Clear();
+            GameMasterSgchan1.Clear();
         }
     }
 }

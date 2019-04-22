@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class MoveSgchan1 : MonoBehaviour
 {
 
     //敵とか動く床とかに使ってください

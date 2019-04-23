@@ -17,7 +17,7 @@ public class GameMasterSgchan3 : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject); //このオブジェクトがシーン遷移で消えないように                
-       
+
 
     }
 
@@ -25,7 +25,7 @@ public class GameMasterSgchan3 : MonoBehaviour
     {
         clear = gameover = false;
 
-        if (restartpoint == Vector3.zero) 
+        if (restartpoint == Vector3.zero)
         {
             restartpoint = GameObject.FindGameObjectWithTag("Player").transform.position;
         }
@@ -47,17 +47,16 @@ public class GameMasterSgchan3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clear || gameover)
+
+        if (Input.GetKey(KeyCode.Return))
         {
-            if (Input.GetKey(KeyCode.Return))
-            {
-                GameMasterSgchan3.Restart();
-
-            }
-            //クリアーまたはゲームオーバー時にエンターを押すと最初からになる
-
+            GameMasterSgchan3.Restart();
 
         }
+        //クリアーまたはゲームオーバー時にエンターを押すと最初からになる
+
+
+
 
     }
 

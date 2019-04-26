@@ -1728,7 +1728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!102 &537199627
 TextMesh:
   serializedVersion: 3
@@ -8288,26 +8288,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1068788118}
     m_Modifications:
-    - target: {fileID: 2640565993253999396, guid: 0c3cf026944370044967252c8487a6a4,
-        type: 3}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2640565993253999398, guid: 0c3cf026944370044967252c8487a6a4,
-        type: 3}
-      propertyPath: m_Name
-      value: ClearText1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2640565993271486749, guid: 0c3cf026944370044967252c8487a6a4,
-        type: 3}
-      propertyPath: m_Name
-      value: ClearText2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2640565993271486947, guid: 0c3cf026944370044967252c8487a6a4,
-        type: 3}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2640565993840690425, guid: 0c3cf026944370044967252c8487a6a4,
         type: 3}
       propertyPath: m_Name
@@ -8372,6 +8352,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640565993253999398, guid: 0c3cf026944370044967252c8487a6a4,
+        type: 3}
+      propertyPath: m_Name
+      value: ClearText1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640565993253999396, guid: 0c3cf026944370044967252c8487a6a4,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640565993271486749, guid: 0c3cf026944370044967252c8487a6a4,
+        type: 3}
+      propertyPath: m_Name
+      value: ClearText2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640565993271486947, guid: 0c3cf026944370044967252c8487a6a4,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c3cf026944370044967252c8487a6a4, type: 3}
